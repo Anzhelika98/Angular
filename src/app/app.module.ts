@@ -14,6 +14,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HeroFormComponent} from './hero-form/hero-form.component';
 import {FirstComponent} from './first/first.component';
 import {NumberDirective} from './new.directive';
+import { ObservableComponent } from './observable/observable.component';
+import { EntryComponent } from './entry/entry.component';
+import { ServiceExampleComponent } from './service-example/service-example.component';
+import {UsefulService} from './service/UsefulService';
+import {SecondModule} from './observable/second.module';
+import {load} from '@angular/core/src/render3/instructions';
 
 @NgModule({
   declarations: [
@@ -27,15 +33,19 @@ import {NumberDirective} from './new.directive';
     SecondComponent,
     HeroFormComponent,
     FirstComponent,
-    NumberDirective
+    NumberDirective,
+    ObservableComponent,
+    EntryComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SecondModule
   ],
-  providers: [PopupService],
-  entryComponents: [PopupComponent],
+  providers: [PopupService,UsefulService],
+  entryComponents: [PopupComponent, EntryComponent],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {
